@@ -1,0 +1,30 @@
+# Oberon discos configuration
+# (DisCoS - distribution coordination server)
+
+# server name
+name: discos3
+
+# multicast bus connection details
+bus:
+    type: multicast
+    group: 224.1.1.1
+    port: 5007
+
+# manhole connection
+manhole:
+    port: 9026
+
+logging:
+    handlers:
+        file:
+            class : logging.handlers.RotatingFileHandler
+            formatter: default
+            filename: /Users/johnl/dev/workspace/oberon/deploy/inst1/log/discos.log
+            maxBytes: 1024
+            backupCount: 10
+            level: DEBUG
+    formatters:
+	    default:
+		    format: '%(asctime)s %(levelname)-8s %(name)-15s %(message)s'
+		    datefmt: '%Y-%m-%d %H:%M:%S'
+  

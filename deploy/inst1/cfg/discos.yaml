@@ -1,0 +1,32 @@
+# Oberon discos configuration
+# (DisCoS - distribution coordination server)
+
+# server name
+server: oberon.discos.Discos
+name: central1
+
+# multicast bus connection details
+connection:
+    address: ['224.1.1.1', 5007]
+
+# manhole connection
+manhole:
+    port: 9024
+
+logging:
+    version: 1
+    handlers:
+        console:
+            class : logging.StreamHandler
+            formatter: default
+        file:
+            class : logging.FileHandler
+            formatter: default
+            filename: /Users/johnl/dev/workspace/oberon/deploy/inst1/log/discos.log
+    formatters:
+        default:
+            format: '%(asctime)s %(levelname)-8s %(name)-15s %(message)s'
+            datefmt: '%Y-%m-%d %H:%M:%S'
+    root:
+        level: DEBUG
+        handlers: [file, console] 
